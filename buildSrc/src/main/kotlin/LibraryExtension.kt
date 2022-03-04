@@ -64,3 +64,27 @@ fun LibraryExtension.androidLibrary() {
         kotlinCompilerExtensionVersion = Versions.Compose.COMPOSE_COMPILER
     }
 }
+
+fun Project.multiplatformLibrary(
+    extensionBlock: (ExtensionContainer.() -> Unit)? = null
+) {
+    with((this as ExtensionAware).extensions) {
+        configure<LibraryExtension>("android") {
+            multiplatformLibrary()
+        }
+
+        extensionBlock?.invoke(this)
+    }
+}
+
+fun LibraryExtension.multiplatformLibrary() {
+    androidLibrary()
+
+    sourceSets {
+        getByName("main") {
+            manifest.srcFile("src/androidMain/AndroidManifest.xml")
+            java.srcDirs("src/androidMain/kotlin")
+            res.srcDirs("src/androidMain/res")
+        }
+    }
+}

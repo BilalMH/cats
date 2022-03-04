@@ -46,7 +46,7 @@ kotlin {
     }
 }
 
-androidLibrary()
+multiplatformLibrary()
 
 buildkonfig {
     packageName = "co.uk.bilalhaider.cats.model"
