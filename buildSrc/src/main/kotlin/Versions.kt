@@ -11,4 +11,8 @@ object Versions {
         const val PAGING_COMPOSE = "1.0.0-alpha14"
         const val VIEWMODEL_COMPOSE = "2.4.1"
     }
+
+    const val KTOR = "1.6.7"
+    const val JUNIT = "4.13.2"
+    const val OK_HTTP = "4.9.3"
 }
