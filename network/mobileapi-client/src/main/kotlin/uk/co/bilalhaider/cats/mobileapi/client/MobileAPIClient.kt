@@ -14,9 +14,7 @@ import kotlinx.coroutines.withContext
 /**
  * Created by Bilal Haider on 12/03/2022
  */
-class MobileAPIClient constructor(
-    private val baseUrl: String
-) {
+class MobileAPIClient() {
 
     private var _httpClient: HttpClient? = null
 
@@ -36,7 +34,7 @@ class MobileAPIClient constructor(
                     }
 
                     defaultRequest {
-                        val baseUrl = Url(baseUrl)
+                        val baseUrl = Url("https://api.thecatapi.com")
 
                         host = baseUrl.host
                         url {
